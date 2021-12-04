@@ -6,6 +6,8 @@ This tool gives a basic command line interface of an exploited HTTP RCE.
 
 This might be useful if no bind-shell, nor reverse-shell can be setup.
 
+NB: The tool spawns a TTY shell with `/usr/bin/script` to correct the error: `su: must be run from terminal` (https://stackoverflow.com/questions/36944634/su-command-in-docker-returns-must-be-run-from-terminal)
+
 ## Usage
 
 ```bash

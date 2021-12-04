@@ -22,6 +22,7 @@ def cmdOutput(my_cmd):
         if (user != "www-data"):
             # To run a command as another user: su <USER> -c "<COMMAND>". 
             # Then the password is asked. A one-liner trick will be used.
+            # "/usr/bin/script" spawns a TTY shell, so "su" is able to run.
             my_cmd = f"""/usr/bin/script -qc 'su {user} -c "{my_cmd}"'"""
 
             # Sleep is used for su to read the password: 
