@@ -39,7 +39,10 @@ def cmdOutput(my_cmd):
             encoded_cmd = urllib.parse.quote(my_cmd)
             req = requests.get(f'{url.replace("MY_CMD",encoded_cmd)}')
             if regex_pattern:
-                print(re.findall(rf'{regex_pattern}', req.text, re.DOTALL)[0])
+                try:
+                    print(re.findall(rf'{regex_pattern}', req.text, re.DOTALL)[0])
+                except:
+                    pass
             else:
                 print(req.text, end='')
 
