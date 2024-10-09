@@ -14,6 +14,7 @@ NB: The tool spawns a TTY shell with `/usr/bin/script` to correct the error: `su
 $ python3 ./http_rce.py -h
 $ python3 ./http_rce.py --url '<URL>' --http-method GET
 $ python3 ./http_rce.py --url '<URL>' --http-method GET --user '<USER>' --pass '<PASS>'
+$ python3 ./http_rce.py --url '<URL>' --http-method GET --user '<USER>' --pass '<PASS>' --regex-pattern 'Password: (.*), plz dont share it'
 ```
 
 ## Examples
@@ -45,3 +46,4 @@ assets css index.php js
 bash >
 ```
 
+Using the `--regex-pattern` option will only show the matched string (between parenthesis in the pattern) from the web server's response
